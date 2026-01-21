@@ -34,6 +34,44 @@ rho = qmax/(0.5*v_qmax^2);     % Air density at max Q [kg/m^3]
 gamma = deg2rad(19);            % Flight path angle [rad]
 theta2 = 0;                  % Angular acceleration [rad/s^2]
 
+% MAX QALPHA
+% time = 17.5; % -----CHECK-----
+% alt = 14.259; %[Km] % -----CHECK-----
+% v = 0.29495*1e3; % -----CHECK-----
+% Mach = 0.995; % -----CHECK-----
+% q = 7895.8; % -----CHECK-----
+% rho = q/(0.5*v^2);
+% gamma = deg2rad(46);
+% theta2 = 0;
+% dec = 0;
+% const_aero = [0.7438,0.0131,2.9694,0.0169,0.0349,6.3742];
+
+% % DROP
+% time = 9; % 
+% alt = 11.76; %[Km] % 
+% v = 210.8; %
+% Mach = 0.7147; %
+% rho = 0.2553;
+% q = 0.5*rho*v^2; % 
+% gamma = deg2rad(46);
+% theta2 = deg2rad(102.6)
+% dec = 0;
+%const_aero = [0.3782,0.01,0.0526,0.0128,0.04,1.15];
+
+
+% MAX ACCEL
+% time = 196.8;
+% alt = 134.5;
+% v = 3.12e3;
+% Mach = 10.25; %
+% q = 0.1; %
+% rho = q/(0.5*v^2);
+% gamma = deg2rad(24.34);
+% theta2 = 0;
+% dec = -5.98*g0;
+% F_spring = 1024.492*0.07*70;
+% const_aero = [0,0,0,0,0,0];
+
 location = [t_qmax,h_qmax,v_qmax,M_qmax,qmax];
 
 % Calculate normal force coefficients based on flight regime
@@ -287,3 +325,4 @@ for i = 1:length(A_v)
         disp(['Thickness of ', str_comp{i}, ' satisfied by ', num2str(variation), ' mm margin'])
     end
 end
+
