@@ -25,14 +25,14 @@ I = data{:, 9};                % Moment of inertia [kg⋅m^2]
 % Max Q occurs when dynamic pressure (q = 0.5*rho*v^2) is maximum
 % This typically happens during transonic flight and represents the worst-case aerodynamic loads
 
-t_qmax = 5.05;                  % Time at max Q [s]
-h_qmax = 11.88;                 % Altitude at max Q [km]
-v_qmax = 0.2389*1e3;           % Velocity at max Q [m/s]
-M_qmax = 0.81;                  % Mach number at max Q
-qmax = 7174.74;                 % Maximum dynamic pressure [Pa]
+t_qmax = 22.2;                  % Time at max Q [s]
+h_qmax = 15.29;                 % Altitude at max Q [km]
+v_qmax = 0.31566*1e3;           % Velocity at max Q [m/s]
+M_qmax = 1.07;                  % Mach number at max Q
+qmax = 7947.74;                 % Maximum dynamic pressure [Pa]
 rho = qmax/(0.5*v_qmax^2);     % Air density at max Q [kg/m^3]
-gamma = deg2rad(46);            % Flight path angle [rad]
-theta2 = 1.05;                  % Angular acceleration [rad/s^2]
+gamma = deg2rad(19);            % Flight path angle [rad]
+theta2 = 0;                  % Angular acceleration [rad/s^2]
 
 location = [t_qmax,h_qmax,v_qmax,M_qmax,qmax];
 
@@ -58,7 +58,7 @@ rho_rp1 = 820;                  % RP-1 density [kg/m^3]
 thrust = 260e3;                 % Engine thrust [N]
 
 const_prop = [m_dot_lox_s1, m_dot_rp1_s1, m_ox_stage1, m_rp1_stage1, rho_lox, rho_rp1, thrust];
-const_aero = [0.8108,0.0118,3.2126,0.0151,0.0349,Cn_inter];
+const_aero = [0.6051,0.0135,2.4545,0.0174,0.045,1.61];
 
 % Calculate time-dependent aerodynamic loads and propellant distribution
 [mv,mnew,cg,CM,Axial_aero,Shear_aero,Tz,Tn,nz,nx,Maero,deltah_ox,deltah_rp1] = aerodynamic(const_prop,location,const_aero,m,r,a,cg,alpha,gamma);
